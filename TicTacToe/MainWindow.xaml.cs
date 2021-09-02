@@ -107,6 +107,11 @@ namespace TicTacToe
 
             button.Content = nPlayerTurn ? "X" : "O";
 
+            if (!nPlayerTurn)
+                button.Foreground = Brushes.Red;
+
+            // bitwise operator : used to invert value
+            nPlayerTurn ^= true;
 
         }
     }
