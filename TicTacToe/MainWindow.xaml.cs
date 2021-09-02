@@ -135,7 +135,7 @@ namespace TicTacToe
                 Button0_0.Foreground = Button1_0.Foreground = Button2_0.Foreground = Brushes.White;
             }
             // Row 1
-            if (nResults[0] != MarkType.Free && (nResults[3] & nResults[4] & nResults[5]) == nResults[3])
+            if (nResults[3] != MarkType.Free && (nResults[3] & nResults[4] & nResults[5]) == nResults[3])
             {
                 //game ends
                 nGameEnded = true;
@@ -145,7 +145,7 @@ namespace TicTacToe
                 Button0_1.Foreground = Button1_1.Foreground = Button2_1.Foreground = Brushes.White;
             }
             // Row 2
-            if (nResults[0] != MarkType.Free && (nResults[6] & nResults[7] & nResults[8]) == nResults[6])
+            if (nResults[6] != MarkType.Free && (nResults[6] & nResults[7] & nResults[8]) == nResults[6])
             {
                 //game ends
                 nGameEnded = true;
@@ -169,7 +169,7 @@ namespace TicTacToe
                 Button0_0.Foreground = Button0_1.Foreground = Button0_2.Foreground = Brushes.White;
             }
             // Column 1
-            if (nResults[0] != MarkType.Free && (nResults[1] & nResults[4] & nResults[7]) == nResults[1])
+            if (nResults[1] != MarkType.Free && (nResults[1] & nResults[4] & nResults[7]) == nResults[1])
             {
                 //game ends
                 nGameEnded = true;
@@ -179,7 +179,7 @@ namespace TicTacToe
                 Button1_0.Foreground = Button1_1.Foreground = Button1_2.Foreground = Brushes.White;
             }
             // Column 2
-            if (nResults[0] != MarkType.Free && (nResults[2] & nResults[5] & nResults[8]) == nResults[2])
+            if (nResults[2] != MarkType.Free && (nResults[2] & nResults[5] & nResults[8]) == nResults[2])
             {
                 //game ends
                 nGameEnded = true;
@@ -200,7 +200,7 @@ namespace TicTacToe
                 Button0_0.Background = Button1_1.Background = Button2_2.Background = Brushes.Green;
                 Button0_0.Foreground = Button1_1.Foreground = Button2_2.Foreground = Brushes.White;
             }
-            if (nResults[0] != MarkType.Free && (nResults[2] & nResults[4] & nResults[6]) == nResults[2])
+            if (nResults[2] != MarkType.Free && (nResults[2] & nResults[4] & nResults[6]) == nResults[2])
             {
                 //game ends
                 nGameEnded = true;
