@@ -113,6 +113,116 @@ namespace TicTacToe
             // bitwise operator : used to invert value
             nPlayerTurn ^= true;
 
+            //check for a winner
+            checkForWinner();
+        }
+
+        /// <summary>
+        /// check if there is 3 in a row
+        /// </summary>
+        private void checkForWinner()
+        {
+            #region horizontal wins
+            // Check horrizontal
+            // Row 0
+            if(nResults[0] != MarkType.Free && (nResults[0] & nResults[1] & nResults[2]) == nResults[0])
+            {
+                //game ends
+                nGameEnded = true;
+
+                // Highlighted winning cells in green
+                Button0_0.Background = Button1_0.Background = Button2_0.Background = Brushes.Green;
+                Button0_0.Foreground = Button1_0.Foreground = Button2_0.Foreground = Brushes.White;
+            }
+            // Row 1
+            if (nResults[0] != MarkType.Free && (nResults[3] & nResults[4] & nResults[5]) == nResults[3])
+            {
+                //game ends
+                nGameEnded = true;
+
+                // Highlighted winning cells in green
+                Button0_1.Background = Button1_1.Background = Button2_1.Background = Brushes.Green;
+                Button0_1.Foreground = Button1_1.Foreground = Button2_1.Foreground = Brushes.White;
+            }
+            // Row 2
+            if (nResults[0] != MarkType.Free && (nResults[6] & nResults[7] & nResults[8]) == nResults[6])
+            {
+                //game ends
+                nGameEnded = true;
+
+                // Highlighted winning cells in green
+                Button0_2.Background = Button1_2.Background = Button2_2.Background = Brushes.Green;
+                Button0_2.Foreground = Button1_2.Foreground = Button2_2.Foreground = Brushes.White;
+            }
+            #endregion
+
+            #region vertical wins
+            // Check Verical
+            // Column 0
+            if (nResults[0] != MarkType.Free && (nResults[0] & nResults[3] & nResults[6]) == nResults[0])
+            {
+                //game ends
+                nGameEnded = true;
+
+                // Highlighted winning cells in green
+                Button0_0.Background = Button0_1.Background = Button0_2.Background = Brushes.Green;
+                Button0_0.Foreground = Button0_1.Foreground = Button0_2.Foreground = Brushes.White;
+            }
+            // Column 1
+            if (nResults[0] != MarkType.Free && (nResults[1] & nResults[4] & nResults[7]) == nResults[1])
+            {
+                //game ends
+                nGameEnded = true;
+
+                // Highlighted winning cells in green
+                Button1_0.Background = Button1_1.Background = Button1_2.Background = Brushes.Green;
+                Button1_0.Foreground = Button1_1.Foreground = Button1_2.Foreground = Brushes.White;
+            }
+            // Column 2
+            if (nResults[0] != MarkType.Free && (nResults[2] & nResults[5] & nResults[8]) == nResults[2])
+            {
+                //game ends
+                nGameEnded = true;
+
+                // Highlighted winning cells in green
+                Button2_0.Background = Button2_1.Background = Button2_2.Background = Brushes.Green;
+                Button2_0.Foreground = Button2_1.Foreground = Button2_2.Foreground = Brushes.White;
+            }
+            #endregion
+
+            #region diagonal wins
+            if (nResults[0] != MarkType.Free && (nResults[0] & nResults[4] & nResults[8]) == nResults[0])
+            {
+                //game ends
+                nGameEnded = true;
+
+                // Highlighted winning cells in green
+                Button0_0.Background = Button1_1.Background = Button2_2.Background = Brushes.Green;
+                Button0_0.Foreground = Button1_1.Foreground = Button2_2.Foreground = Brushes.White;
+            }
+            if (nResults[0] != MarkType.Free && (nResults[2] & nResults[4] & nResults[6]) == nResults[2])
+            {
+                //game ends
+                nGameEnded = true;
+
+                // Highlighted winning cells in green
+                Button2_0.Background = Button1_1.Background = Button0_2.Background = Brushes.Green;
+                Button2_0.Foreground = Button1_1.Foreground = Button0_2.Foreground = Brushes.White;
+            }
+            #endregion
+
+
+            //no more cells left
+            if (!nResults.Any(result => result == MarkType.Free))
+            {
+                nGameEnded = true;
+
+                // turn all cells orange
+                Container.Children.Cast<Button>().ToList().ForEach(button =>
+                {
+                    button.Background = Brushes.Orange;  
+                });
+            }
         }
     }
 }
